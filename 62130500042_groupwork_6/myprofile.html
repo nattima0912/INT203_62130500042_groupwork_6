@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Vue Js - HelloWorld App</title>
+
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+</head>
+
+<body>
+    <div id="app" class="w-screen h-screen bg-gradient-to-r from-purple-300 to-pink-200 overflow-y-scroll">
+        <form @submit.prevent="checkForm">
+            <div class="flex justify-content-center align-items-center  ">
+                <div class="text-center">
+                    <img :src="image1" class="ml-40 mt-4 border-2 p-2" width="160">
+                    <h1 class="mt-4  text-center">My Profile</h1>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex flex-col">
+                            <label for="firstname" class="text-sm  text-gray-600">First Name</label>
+                            <input type="text" id="firstname" v-model="firstname" name="firstname"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                                <display-error :errors="errors" field="firstname"></display-error>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="lastname" class="text-sm  text-gray-600">Last Name</label>
+                            <input type="text" id="lastname" v-model="lastname" name="lastname"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                                <display-error :errors="errors" field="lastname"></display-error>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="email" class="text-sm text-gray-600">Email</label>
+                            <input type="text" id="email" v-model="email" name="email"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                                <display-error :errors="errors" field="email"></display-error>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="phone" class="text-sm  text-gray-600">Phone</label>
+                            <input type="text" id="phone" v-model="phone" name="phone"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                                <display-error :errors="errors" field="phone"></display-error>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="birth" class="text-sm  text-gray-600">Birthday</label>
+                            <input type="date" id="birth" v-model="birth" name="birth"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                                <display-error :errors="errors" field="birth"></display-error>
+                        </div>  
+                        <div class="flex flex-col">
+                            <label for="genders" class="text-sm  text-gray-600">Gender</label>
+                            <select id="genders" v-model="genders" name="genders"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                                <option v-for="gender in gender_list" :value="gender.id">
+                                    {{gender.name}}
+                                </option>
+                                </select>
+                                <display-error :errors="errors" field="genders"></display-error>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="age" class="text-sm  text-gray-600">Age</label>
+                            <input type="text" id="age" v-model="age" name="age"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                                <display-error :errors="errors" field="age"></display-error>
+                        </div>
+                        <div>
+                            <input type="submit" value="Submit"
+                                class="px-9 py-2.5 bg-black rounded-lg text-white  mt-3 hover:bg-pink-600 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- my main.js -->
+    <script src="./profile.js">
+    </script>
+
+</body>
+
+</html>
